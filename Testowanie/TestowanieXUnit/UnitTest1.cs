@@ -7,7 +7,7 @@ namespace Testowanie
         {
             int[] unsorted = { 64, 25, 12, 22, 11 };
             int[] sorted = { 11, 12, 22, 25, 64 };
-            SortowanieWstawianie.Sort(unsorted);
+            Sortowanie.Sort(unsorted);
             Assert.Equal(sorted, unsorted);
         }
 
@@ -15,7 +15,7 @@ namespace Testowanie
         public void NullArray()
         {
             int[] empty = null;
-            Assert.Throws<ArgumentNullException>(() => SortowanieWstawianie.Sort(empty));
+            Assert.Throws<ArgumentNullException>(() => Sortowanie.Sort(empty));
         }
 
         [Fact]
@@ -23,7 +23,7 @@ namespace Testowanie
         {
             int[] sorted = { 1, 2, 3, 4, 5 };
             int[] expected = { 1, 2, 3, 4, 5 };
-            SortowanieWstawianie.Sort(sorted);
+            Sortowanie.Sort(sorted);
             Assert.Equal(expected, sorted);
         }
 
@@ -32,7 +32,7 @@ namespace Testowanie
         {
             int[] withDuplicates = { 3, 1, 4, 1, 5 };
             int[] expected = { 1, 1, 3, 4, 5 };
-            SortowanieWstawianie.Sort(withDuplicates);
+            Sortowanie.Sort(withDuplicates);
             Assert.Equal(expected, withDuplicates);
         }
 
@@ -41,7 +41,7 @@ namespace Testowanie
         {
             int[] allEqual = { 2, 2, 2, 2, 2 };
             int[] expected = { 2, 2, 2, 2, 2 };
-            SortowanieWstawianie.Sort(allEqual);
+            Sortowanie.Sort(allEqual);
             Assert.Equal(expected, allEqual);
         }
     }
