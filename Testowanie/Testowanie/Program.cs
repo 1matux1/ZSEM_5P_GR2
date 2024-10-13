@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Testowanie
+﻿namespace Testowanie
 {
-    class SortowanieWstawianie
+    public class SortowanieWstawianie
     {
         public static void Sort(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array), "Array cannot be null");
+            }
+
             int n = array.Length;
 
             for (int i = 0; i < n - 1; i++)
@@ -43,7 +42,6 @@ namespace Testowanie
             {
                 Console.Write(item + " ");
             }
-            Console.ReadKey(true);
         }
     }
 }
