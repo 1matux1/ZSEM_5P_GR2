@@ -71,7 +71,6 @@
         public int Max() => _data.Length > 0 ? _data[^1] : throw new InvalidOperationException("Tablica jest pusta");
 
         public int Min() => _data.Length > 0 ? _data[0] : throw new InvalidOperationException("Tablica jest pusta");
-
     }
 
     class Program
