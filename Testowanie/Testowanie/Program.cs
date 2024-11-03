@@ -36,17 +36,17 @@
             }
         }
     }
-    public class ProcesorDanych
+    public class ProcessData
     {
         private int[] _data;
 
-        public ProcesorDanych(int[] data)
+        public ProcessData(int[] data)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data), "Dane nie mogą być null");
             Sortowanie.Sort(_data);
         }
 
-        public double ObliczSrednia()
+        public double Avg()
         {
             if (_data.Length == 0)
                 return 0;
@@ -59,7 +59,7 @@
             return (double)suma / _data.Length;
         }
 
-        public double ObliczMediane()
+        public double Mediana()
         {
             if (_data.Length == 0)
                 return 0;
@@ -68,17 +68,17 @@
             return _data.Length % 2 == 0 ? (_data[mid - 1] + _data[mid]) / 2.0 : _data[mid];
         }
 
-        public int ZnajdzMaksimum() => _data.Length > 0 ? _data[^1] : throw new InvalidOperationException("Tablica jest pusta");
+        public int Max() => _data.Length > 0 ? _data[^1] : throw new InvalidOperationException("Tablica jest pusta");
 
-        public int ZnajdzMinimum() => _data.Length > 0 ? _data[0] : throw new InvalidOperationException("Tablica jest pusta");
+        public int Min() => _data.Length > 0 ? _data[0] : throw new InvalidOperationException("Tablica jest pusta");
 
-        public bool CzyZawiera(int element)
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            foreach (var item in _data)
-            {
-                if (item == element) return true;
-            }
-            return false;
+            
         }
     }
 }
