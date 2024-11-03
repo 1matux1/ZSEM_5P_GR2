@@ -36,17 +36,49 @@
             }
         }
     }
-
-    class Program
+    public class ProcesorDanych
     {
-        static void Main(string[] args)
+        private int[] _data;
+
+        public ProcesorDanych(int[] data)
         {
-            int[] arr = { 64, 25, 12, 22, 11 };
-            Sortowanie.Sort(arr);
-            foreach (var item in arr)
+            _data = data ?? throw new ArgumentNullException(nameof(data), "Dane nie mogą być null");
+            Sortowanie.Sort(_data);
+        }
+
+        public double ObliczSrednia()
+        {
+            if (_data.Length == 0)
+                return 0;
+
+            int suma = 0;
+            foreach (var item in _data)
             {
-                Console.Write(item + " ");
+                suma += item;
             }
+            return (double)suma / _data.Length;
+        }
+
+        public double ObliczMediane()
+        {
+            if (_data.Length == 0)
+                return 0;
+
+            int mid = _data.Length / 2;
+            return _data.Length % 2 == 0 ? (_data[mid - 1] + _data[mid]) / 2.0 : _data[mid];
+        }
+
+        public int ZnajdzMaksimum() => _data.Length > 0 ? _data[^1] : throw new InvalidOperationException("Tablica jest pusta");
+
+        public int ZnajdzMinimum() => _data.Length > 0 ? _data[0] : throw new InvalidOperationException("Tablica jest pusta");
+
+        public bool CzyZawiera(int element)
+        {
+            foreach (var item in _data)
+            {
+                if (item == element) return true;
+            }
+            return false;
         }
     }
 }
