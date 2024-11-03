@@ -36,17 +36,48 @@
             }
         }
     }
+    public class ProcessData
+    {
+        private int[] _data;
+
+        public ProcessData(int[] data)
+        {
+            _data = data ?? throw new ArgumentNullException(nameof(data), "Dane nie mogą być null");
+            Sortowanie.Sort(_data);
+        }
+
+        public double Avg()
+        {
+            if (_data.Length == 0)
+                return 0;
+
+            int suma = 0;
+            foreach (var item in _data)
+            {
+                suma += item;
+            }
+            return (double)suma / _data.Length;
+        }
+
+        public double Mediana()
+        {
+            if (_data.Length == 0)
+                return 0;
+
+            int mid = _data.Length / 2;
+            return _data.Length % 2 == 0 ? (_data[mid - 1] + _data[mid]) / 2.0 : _data[mid];
+        }
+
+        public int Max() => _data.Length > 0 ? _data[^1] : throw new InvalidOperationException("Tablica jest pusta");
+
+        public int Min() => _data.Length > 0 ? _data[0] : throw new InvalidOperationException("Tablica jest pusta");
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
-            int[] arr = { 64, 25, 12, 22, 11 };
-            Sortowanie.Sort(arr);
-            foreach (var item in arr)
-            {
-                Console.Write(item + " ");
-            }
+            
         }
     }
 }
